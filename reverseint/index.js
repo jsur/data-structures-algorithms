@@ -11,9 +11,7 @@
 const reverseStr = (str = '') => str.split('').reverse().join('');
 
 function reverseInt(n) {
-  const isNegative = n < 0;
-  const reversed = reverseStr(isNegative ? `${n}`.slice(1) : `${n}`);
-  return Number(reversed) * (isNegative ? -1 : 1);
+  return parseInt(reverseStr(`${n}`)) * Math.sign(n);
 }
 
 module.exports = reverseInt;
