@@ -17,11 +17,28 @@
 //       '### '
 //       '####'
 
+/*
 function steps(n) {
   let str = '';
   for (let i = 0; i < n; i++) {
     str += '#';
     console.log(str.padEnd(n, ' '));
+  }
+}
+
+*/
+function steps(n) {
+  for (let row = 0; row < n; row++) {
+    let stair = '';
+
+    for (let col = 0; col < n; col++) {
+      if (col <= row) {
+        stair += '#';
+      } else {
+        stair += ' ';
+      }
+    }
+    console.log(stair);
   }
 }
 
