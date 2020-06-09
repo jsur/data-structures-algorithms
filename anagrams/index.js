@@ -8,6 +8,7 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+/*
 function strToCharMap(str = '') {
   const charMap = {};
   for (let c of str.replace(/[^\w]/g, '').toLowerCase()) {
@@ -15,7 +16,6 @@ function strToCharMap(str = '') {
   }
   return charMap;
 }
-
 
 function anagrams(stringA, stringB) {
   const aCharMap = strToCharMap(stringA);
@@ -33,5 +33,18 @@ function anagrams(stringA, stringB) {
 
   return true;
 }
+*/
+
+function cleanStr(str = '') {
+  return str
+    .replace(/[^\w]/g, '')
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('');
+}
+
+const anagrams = (stringA, stringB) => cleanStr(stringA) === cleanStr(stringB);
+
 
 module.exports = anagrams;
