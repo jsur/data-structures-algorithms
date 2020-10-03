@@ -12,6 +12,26 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    /*
+      if slow and fast are the same,
+      it means that fast has progressed along the list
+      back to the same point as slow has reached -
+      i.e. the linked list is circular
+    */
+    if (slow === fast) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 module.exports = circular;
