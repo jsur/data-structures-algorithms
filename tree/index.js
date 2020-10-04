@@ -34,7 +34,19 @@ class Tree {
     const arr = [this.root];
     while (arr.length) {
       const node = arr.shift();
+      // store children for later execution (sheesh :o)
       arr.push(...node.children);
+      fn(node);
+    }
+  }
+
+  traverseDF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+      const node = arr.shift();
+      // place children to the start of the queue for immediate execution
+      // (don't arrest me fbi)
+      arr.unshift(...node.children);
       fn(node);
     }
   }
